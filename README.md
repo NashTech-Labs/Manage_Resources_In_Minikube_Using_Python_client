@@ -70,26 +70,14 @@ To Use the Python Client to perform tasks on the cluster, we nee to autheticate 
 ```
 $ kubectl create sa resource-service-account
 ```
-serviceaccount/resource-service-account created
 
 ```
 $ kubectl describe sa resource-service-account
 ```
-Name:                resource-service-account
-Namespace:           default
-Labels:              <none>
-Annotations:         <none>
-Image pull secrets:  <none>
-Mountable secrets:   <none>
-Tokens:              <none>
-Events:              <none>
 
-
-
-
+```
 $ kubectl get pods
-NAME     READY   STATUS              RESTARTS   AGE
-nginx1   0/1     ContainerCreating   0          36s
+```
 
 ```
 $ python3 pod-view.py
