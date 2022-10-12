@@ -74,7 +74,32 @@ $ kubectl create sa resource-service-account
 ```
 $ kubectl describe sa resource-service-account
 ```
+    
+```    
+$ kubectl apply -f - <<EOF
+> apiVersion: v1
+kind: Secret
+type: kubernetes.io/service-account-token
+metadata:
+  name: resource-service-account-token
+  annotations:
+    kubernetes.io/service-account.name: "resource-service-account"
+> EOF
+secret/resource-service-account-token created
+```
+```
+$ kubectl get secret
+```
 
+    ```
+$ kubectl get secret resource-service-account-token -o json | jq -r .data.token | base64 --decode
+ ```
+ 
+ ```
+    $ sudo apt-get install jq
+ ```
+    
+    
 ```
 $ kubectl get pods
 ```
@@ -82,5 +107,4 @@ $ kubectl get pods
 ```
 $ python3 pod-view.py
 ```
-Name: nginx1, Namespace: default IP: 10.244.1.2
 
