@@ -91,12 +91,12 @@ secret/resource-service-account-token created
 $ kubectl get secret
 ```
 
-    ```
+```
 $ kubectl get secret resource-service-account-token -o json | jq -r .data.token | base64 --decode
  ```
  
  ```
-    $ sudo apt-get install jq
+ $ sudo apt-get install jq
  ```
     
     
